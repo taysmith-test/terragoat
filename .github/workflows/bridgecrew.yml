@@ -18,3 +18,15 @@ jobs:
       with:
         api-key: ${{ secrets.BC_API_KEY }}
         directory: terraform/
+  image-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: 'docker pull nginx:1.17.9-alpine'
+    - name: BC Image Scan
+      id: Bridgecrew
+      uses: bridgecrewio/bridgecrew-action@master
+      with:
+        api-key: ${{ secrets.BC_API_KEY }}
+        docker-image: nginx:1.17.9-alpine
+        dockerfile-path: /terraform/aws/resources/Dockerfile
