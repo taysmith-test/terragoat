@@ -1,0 +1,27 @@
+on: [push]
+
+env:
+  IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+  IMAGE_PATH: /path/DOCKERFILE
+
+jobs:
+  checkov-image-scan:
+    runs-on: ubuntu-latest
+    name: checkov-image-scan
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
+      - name: Build the image
+        run: docker build -t $IMAGE_NAME $IMAGE_PATH
+
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          quiet: true # optional: display only failed checks
+          soft_fail: true # optional: do not return an error code if there are failed checks
+          log_level: DEBUG # optional: set log level. Default WARNING
+          docker-image: $IMAGE_NAME # define the name of the image to scan
+          dockerfile-path: $IMAGE_PATH # path to the Dockerfile
+          container_user: 1000
