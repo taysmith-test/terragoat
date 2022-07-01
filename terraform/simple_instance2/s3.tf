@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "docking_bay" {
 
   tags = {
     Name                 = "Docking Bay"
-    Environment          = "Dev"
+    Environment          = "Dev2"
     git_commit           = "752c7da2a1079e5aeebfbe3aae538c5b712398a3"
     git_file             = "terraform/simple_instance2/s3.tf"
     git_last_modified_at = "2022-07-01 22:27:24"
