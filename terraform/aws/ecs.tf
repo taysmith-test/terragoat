@@ -29,12 +29,12 @@ resource "aws_ecs_task_definition" "service" {
     }
   ])
   tags = {
-    git_commit           = "c3ee16cc6009f4b2589ec9f02d3bd8db6ba9e88e"
-    git_file             = "terraform/image/ecs.tf"
-    git_last_modified_at = "2022-10-02 15:14:16"
-    git_last_modified_by = "93744932+try-panwiac@users.noreply.github.com"
-    git_modifiers        = "93744932+try-panwiac"
-    git_org              = "try-panwiac"
+    git_commit           = "37e0d64f9e648a0358669ed038903673ce7be5c0"
+    git_file             = "terraform/aws/ecs.tf"
+    git_last_modified_at = "2022-10-02 15:53:41"
+    git_last_modified_by = "87036659+taysmith-test@users.noreply.github.com"
+    git_modifiers        = "87036659+taysmith-test"
+    git_org              = "taysmith-test"
     git_repo             = "terragoat"
     yor_trace            = "d2f8ae8f-3419-414c-84da-d72250e8dbe6"
   }
